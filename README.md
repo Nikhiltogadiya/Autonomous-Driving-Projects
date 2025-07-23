@@ -1,13 +1,10 @@
 # Autonomous-Driving-Projects
 
-# Autonomous Driving Projects
-
 Welcome to my repository for autonomous driving projects completed as part of the "Autonomous Driving SS 2024" course at Ostfalia University of Applied Sciences. This collection showcases practical implementations of key concepts in autonomous systems, including reinforcement learning, sensor fusion, and vehicle control.
 
 ## Table of Contents
 
 - [Autonomous-Driving-Projects](#autonomous-driving-projects)
-- [Autonomous Driving Projects](#autonomous-driving-projects-1)
   - [Table of Contents](#table-of-contents)
     - [**Task 1: Highway Driving with Proximal Policy Optimization (PPO)**](#task-1-highway-driving-with-proximal-policy-optimization-ppo)
     - [**Task 2: Environment Perception with Dempster-Shafer Grid Fusion**](#task-2-environment-perception-with-dempster-shafer-grid-fusion)
