@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<robot name="Fusion Webots">
+    <webots>
+        <device reference="gps" type="GPS">
+            <ros>
+                <enabled>true</enabled>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        <plugin type="webots_ros2_driver::Ros2IMU">
+            <enabled>true</enabled>
+            <alwaysOn>true</alwaysOn>
+            <topicName>/imu</topicName>
+            <frameName>imu_link</frameName>
+            <inertialUnitName>inertial unit</inertialUnitName>
+        </plugin>
+        <device reference="lidar" type="SickLms291">
+            <ros>
+                <enabled>true</enabled>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        <device reference="grid" type="Display">
+            <ros>
+                <enabled>true</enabled>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+
+
+        <plugin type="fusion_grid.fusion_driver.FusionDriver"/>
+
+    </webots>
+</robot>

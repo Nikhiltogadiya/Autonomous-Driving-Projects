@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<robot name="Robot Vehicle">
+    <webots>
+        <device reference="gps" type="GPS">
+            <ros>
+                <enabled>true</enabled>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+
+        <plugin type="robot_launch.vehicle_driver.Driver">
+            <vehicle>myrobot</vehicle>
+        </plugin>
+    </webots>
+</robot>

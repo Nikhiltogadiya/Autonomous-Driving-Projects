@@ -1,0 +1,286 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/Crossroad.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/CurvedRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/smartmicro/protos/SmsUmrr-0a29.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
+# EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/protos/SumoInterface.proto"
+EXTERNPROTO "https://asaf-e.ostfalia.de/webots/protos/SumoInterface.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/protos/SumoDisplay.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/range_rover/RangeRoverSportSVRSimple.proto"
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
+
+WorldInfo {
+  ERP 0.6
+  basicTimeStep 20
+  lineScale 5
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TeslaModel3Wheel"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.18122333113415479 -0.16668984641497975 -0.9692123602981911 4.833755192328703
+  position -44.604886427286495 -155.06692235086308 19.137861072379298
+  near 1
+  follow "myrobot"
+  followType "Mounted Shot"
+  followSmoothness 0
+}
+TexturedBackgroundLight {
+}
+SumoInterface {
+  enableWheelsRotation TRUE
+#  display SumoDisplay {
+#  }  
+  gui FALSE
+}
+Fog {
+  color 0.38 0.35 0.32
+  visibilityRange 1000
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/worlds/textures/ground.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 2000 2000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+StraightRoadSegment {
+  translation -205 -95.5 0.02
+  rotation 0 0 1 1.5708
+  name "road1"
+  id "1"
+  startJunction "114"
+  endJunction "121"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "double"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 200
+}
+Crossroad {
+  translation -205 104.5 0
+  name "crossroad(121)"
+  id "121"
+  shape []
+  connectedRoadIDs [
+    "1"
+    "2"
+  ]
+}
+CurvedRoadSegment {
+  translation -125 104.5 0.02
+  rotation 0 0 1 1.5708
+  name "road2"
+  id "2"
+  startJunction "121"
+  endJunction "132"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "double"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 80
+  totalAngle 3.14159
+}
+Crossroad {
+  translation -45 104.5 0
+  name "crossroad(132)"
+  id "132"
+  shape []
+  connectedRoadIDs [
+    "2"
+    "3"
+  ]
+}
+StraightRoadSegment {
+  translation -45 -95.5 0.02
+  rotation 0 0 1 1.5708
+  name "road3"
+  id "3"
+  startJunction "143"
+  endJunction "132"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "double"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 200
+}
+Crossroad {
+  translation -45 -95.5 0
+  name "crossroad(143)"
+  id "143"
+  shape []
+  connectedRoadIDs [
+    "3"
+    "4"
+  ]
+}
+CurvedRoadSegment {
+  translation -125 -95.5 0.02
+  rotation 0 0 1 -1.5708
+  name "road4"
+  id "4"
+  startJunction "143"
+  endJunction "114"
+  width 21.5
+  numberOfLanes 4
+  numberOfForwardLanes 2
+  lines [
+    RoadLine {
+    }
+    RoadLine {
+      color 0.85 0.75 0.3
+      type "double"
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 80
+  totalAngle 3.14159
+}
+Crossroad {
+  translation -205 -95.5 0
+  name "crossroad(114)"
+  id "114"
+  shape []
+  connectedRoadIDs [
+    "4"
+    "1"
+  ]
+}
+DEF Tesla TeslaModel3 {
+  name "myrobot"
+  translation -42.7 -105.92 0.2
+  rotation 0 0 1 1.5708
+  controller "<extern>"
+  supervisor TRUE
+  sensorsSlotFront [
+    Camera {
+      translation -2.12 0 0.93
+      rotation 0 1 0 0.26
+      fieldOfView 2.5
+      width 720
+      height 1
+    }
+    SmsUmrr-0a29 {
+      name "sms"
+    }
+    DistanceSensor {
+      translation 0 0.8 0
+      type "generic"
+      numberOfRays 1
+      name "front left"
+      lookupTable [
+          0 0 0
+          2 2 0
+        ]
+    }
+    DistanceSensor {
+      translation 0 0 0
+      type "generic"
+      numberOfRays 1
+      name "front middle"
+      lookupTable [
+          0 0 0
+          2 2 0
+        ]
+    }
+    DistanceSensor {
+      translation 0 -0.8 0
+      type "generic"
+      numberOfRays 1
+      name "front right"
+      lookupTable [
+          0 0 0
+          2 2 0
+        ]
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+  ]
+}
+DEF SUMO_VEHICLE0 RangeRoverSportSVRSimple {
+  name "follow"
+  color 0.43 0.11 0.1
+}
+Robot {
+  name "Ros2Supervisor"
+  controller "<extern>"
+  supervisor TRUE
+}

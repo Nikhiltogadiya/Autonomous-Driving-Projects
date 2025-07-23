@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__
+log
+build
+install
+*egg-info
+.cache
+.colcon
+.config
+.foxrc
